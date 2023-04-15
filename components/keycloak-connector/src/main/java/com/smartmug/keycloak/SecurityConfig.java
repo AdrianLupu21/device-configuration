@@ -1,4 +1,4 @@
-package com.smartmug.device.configuration.controller;
+package com.smartmug.keycloak;
 
 
 import org.keycloak.adapters.springsecurity.authentication.KeycloakAuthenticationProvider;
@@ -10,7 +10,10 @@ import org.keycloak.adapters.springsecurity.filter.KeycloakPreAuthActionsFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Scope;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -52,8 +55,8 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
         http.authorizeRequests()
-                .antMatchers("/user").permitAll()
-                .anyRequest().authenticated();
+                .antMatchers("/maxcup").permitAll();
+//                .anyRequest().authenticated();
         http.csrf().disable();
         //http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
     }

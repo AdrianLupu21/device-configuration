@@ -1,8 +1,11 @@
 package com.smartmug.device.resource;
 
 
+import javax.validation.Valid;
+import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
+import com.smartmug.device.configuration.dto.DeviceConfigurationDTO;
 import com.smartmug.device.configuration.dto.GroupDTO;
 import com.smartmug.device.configuration.dto.UserDTO;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public interface DeviceConfigurationResource {
 
     @PostMapping("/user")
-    Response addUser(@RequestBody final UserDTO userDTO);
+    Response addUser(@Valid @RequestBody final UserDTO userDTO);
 
     @GetMapping("/users")
     Response getUsers();
@@ -30,4 +33,9 @@ public interface DeviceConfigurationResource {
     @PostMapping("/resource/{resourcePath}")
     Response addResource(@RequestBody final byte[] resource,@PathVariable final String resourcePath);
 
+    @GetMapping("/resource/{resourcePath}")
+    Response getResource(@PathVariable final String resourcePath);
+
+    @PostMapping("/device")
+    Response registerDevice(@RequestBody final DeviceConfigurationDTO deviceConfigurationDTO);
 }

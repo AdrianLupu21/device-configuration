@@ -22,16 +22,16 @@ public class ResourceRepositoryJpa {
         this.path = path;
     }
 
-    private OffsetDateTime dateTime;
+    private OffsetDateTime lastUpdateDate;
 
     private String updatedBy;
 
-    public OffsetDateTime getDateTime() {
-        return dateTime;
+    public OffsetDateTime getLastUpdateDate() {
+        return lastUpdateDate;
     }
 
-    public void setDateTime(OffsetDateTime dateTime) {
-        this.dateTime = dateTime;
+    public void setLastUpdateDate(OffsetDateTime lastUpdateDate) {
+        this.lastUpdateDate = lastUpdateDate;
     }
 
     public String getUpdatedBy() {

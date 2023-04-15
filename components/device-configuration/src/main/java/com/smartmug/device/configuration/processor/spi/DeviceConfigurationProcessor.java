@@ -1,6 +1,7 @@
 package com.smartmug.device.configuration.processor.spi;
 
 
+import com.smartmug.device.configuration.dto.DeviceConfigurationDTO;
 import com.smartmug.device.configuration.dto.GroupDTO;
 import com.smartmug.device.configuration.dto.UserDTO;
 import com.smartmug.device.configuration.entities.UserGroupJpa;
@@ -26,4 +27,8 @@ public interface DeviceConfigurationProcessor {
     List<GroupDTO> fetchGroups();
 
     UserGroupJpa fetchGroupByName(final String name);
+
+    String getResource(final String resourcePath);
+
+    void registerDevice(final DeviceConfigurationDTO deviceConfigurationDTO);
 }

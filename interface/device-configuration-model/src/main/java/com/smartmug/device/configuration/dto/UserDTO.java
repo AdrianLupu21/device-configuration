@@ -1,14 +1,19 @@
 package com.smartmug.device.configuration.dto;
 
+import javax.validation.constraints.NotEmpty;
+
 public class UserDTO {
 
+    @NotEmpty
     private String username;
+    @NotEmpty
     private String deviceToken;
     private String firstName;
     private String lastName;
+    @NotEmpty
     private String email;
     private String groupName;
-
+    @NotEmpty
     private String password;
 
     public String getUsername() {

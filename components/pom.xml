@@ -12,9 +12,10 @@
     <groupId>com.smartmug.components</groupId>
     <artifactId>components</artifactId>
     <packaging>pom</packaging>
-    <version>${revision}</version>
+    <version>develop-SNAPSHOT</version>
 
     <properties>
+        <revision>develop-SNAPSHOT</revision>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
@@ -23,7 +24,7 @@
             <dependency>
                 <groupId>com.smartmug.boms</groupId>
                 <artifactId>boms</artifactId>
-                <version>${revision}</version>
+                <version>develop-SNAPSHOT</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -31,5 +32,7 @@
     </dependencyManagement>
     <modules>
         <module>device-configuration</module>
+        <module>device-configuration-client</module>
+        <module>keycloak-connector</module>
     </modules>
 </project>

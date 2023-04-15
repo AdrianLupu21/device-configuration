@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.smartmug</groupId>
 	<artifactId>smartmug</artifactId>
-	<version>${revision}</version>
+	<version>develop-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>device-configuration</name>
 	<description>Demo project for Spring Boot</description>
@@ -32,6 +32,6 @@
 		<module>boms</module>
 		<module>interface</module>
 		<module>components</module>
-	</modules>
+    </modules>
 
 </project>

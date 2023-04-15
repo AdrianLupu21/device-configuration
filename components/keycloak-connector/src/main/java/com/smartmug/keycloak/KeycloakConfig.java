@@ -1,4 +1,4 @@
-package com.smartmug.device.configuration.controller;
+package com.smartmug.keycloak;
 
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;
 import org.keycloak.adapters.springsecurity.client.KeycloakClientRequestFactory;
@@ -14,8 +14,7 @@ public class KeycloakConfig {
     }
 
     @Bean
-    public KeycloakClientRequestFactory keycloakClientRequestFactory(
-    ) {
+    public KeycloakClientRequestFactory keycloakClientRequestFactory() {
         return new KeycloakClientRequestFactory();
     }
 

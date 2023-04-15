@@ -3,12 +3,15 @@ package com.smartmug.device.configuration.dao;
 import com.smartmug.device.configuration.controller.DeviceConfigurationError;
 import com.smartmug.device.configuration.controller.DeviceConfigurationErrorCode;
 import com.smartmug.device.configuration.dto.UserDTO;
+import com.smartmug.device.configuration.entities.DeviceConfigurationJpa;
 import com.smartmug.device.configuration.entities.UserGroupJpa;
 import com.smartmug.device.configuration.entities.UserJpa;
 import com.smartmug.device.configuration.repository.UserGroupRepository;
 import com.smartmug.device.configuration.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.Collections;
 
 import static com.smartmug.device.configuration.controller.DeviceConfigurationErrorCode.INVALID_GROUP_NAME;
 import static com.smartmug.device.configuration.controller.DeviceConfigurationErrorCode.USERNAME_TAKEN;
@@ -18,6 +21,9 @@ public class UserDAO {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private DeviceConfigurationDAO deviceConfigurationDAO;
 
     @Autowired
     private UserGroupRepository userGroupRepository;
@@ -34,6 +40,9 @@ public class UserDAO {
         user.setLastName(userDTO.getLastName());
         user.setGroup(userGroupJpa);
         user.setUsername(userDTO.getUsername());
+        final DeviceConfigurationJpa deviceConfigurationJpa =
+                deviceConfigurationDAO.findDeviceByToken(userDTO.getDeviceToken());
+        user.setDeviceConfigurationJpa(Collections.singletonList(deviceConfigurationJpa));
         return user;
     }
 

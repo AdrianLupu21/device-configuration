@@ -1,4 +1,4 @@
-package com.smartmug.device.configuration.controller;
+package com.smartmug.keycloak;
 
 import org.keycloak.adapters.springboot.KeycloakSpringBootProperties;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,0 +1,11 @@
+{
+  "bootstrapServers": "85.204.43.222:9092",
+  "acks": "1",
+  "retries": "2",
+  "batchSize": "1000",
+  "keySerializer": "org.apache.kafka.common.serialization.StringSerializer",
+  "valueSerializer": "org.apache.kafka.common.serialization.StringSerializer",
+  "compressionType": "NONE",
+  "topicName": "alert-topic",
+  "latchTimeout": "3000"
+}

@@ -1,13 +1,14 @@
-package com.smartmug.device.resource;
+package com.smartmug.device.configuration.resource;
 
 
 import javax.validation.Valid;
-import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
 import com.smartmug.device.configuration.dto.DeviceConfigurationDTO;
 import com.smartmug.device.configuration.dto.GroupDTO;
 import com.smartmug.device.configuration.dto.UserDTO;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 public interface DeviceConfigurationResource {
@@ -30,11 +31,11 @@ public interface DeviceConfigurationResource {
     @GetMapping("users/{groupName}")
     Response getUserByGroupName(@PathVariable final String groupName);
 
-    @PostMapping("/resource/{resourcePath}")
-    Response addResource(@RequestBody final byte[] resource,@PathVariable final String resourcePath);
+    @PostMapping("/resource")
+    Response addResource(@RequestBody final byte[] resource,@PathParam("resourcePath") final String resourcePath);
 
-    @GetMapping("/resource/{resourcePath}")
-    Response getResource(@PathVariable final String resourcePath);
+    @GetMapping("/resource")
+    ResponseEntity<String> getResource(@PathParam("resourcePath") final String resourcePath);
 
     @PostMapping("/device")
     Response registerDevice(@RequestBody final DeviceConfigurationDTO deviceConfigurationDTO);

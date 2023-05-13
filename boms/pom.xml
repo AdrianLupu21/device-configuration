@@ -34,7 +34,17 @@
             </dependency>
             <dependency>
                 <groupId>com.smartmug.interface</groupId>
+                <artifactId>kafka-configuration-model</artifactId>
+                <version>develop-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.smartmug.interface</groupId>
                 <artifactId>device-configuration-resource</artifactId>
+                <version>develop-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.smartmug.interface</groupId>
+                <artifactId>device-notification-resource</artifactId>
                 <version>develop-SNAPSHOT</version>
             </dependency>
             <dependency>
@@ -72,6 +82,27 @@
                 <artifactId>keycloak-connector</artifactId>
                 <version>develop-SNAPSHOT</version>
             </dependency>
+            <dependency>
+                <groupId>com.smartmug.interface</groupId>
+                <artifactId>message-templates</artifactId>
+                <version>develop-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.smartmug</groupId>
+                <artifactId>notification-client</artifactId>
+                <version>develop-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.smartmug.interface</groupId>
+                <artifactId>device-management-model</artifactId>
+                <version>develop-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.smartmug.interface</groupId>
+                <artifactId>device-management-resource</artifactId>
+                <version>develop-SNAPSHOT</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
     <distributionManagement>

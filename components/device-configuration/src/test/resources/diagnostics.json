@@ -1,0 +1,16 @@
+{
+  "CPU_TEMPERATURE" : "23",
+  "CPU_USAGE" : "43",
+  "BATTERY_LEVEL" : "23",
+  "POWER_CONSUMPTION": "12",
+  "MEMORY_USAGE": "43",
+  "NETWORK_TRAFFIC": "23",
+  "IO_OPERATIONS": "12",
+  "ERROR_LOGS" : [
+    {
+      "SEVERITY": "INFO",
+      "MESSAGE": "test message",
+      "TIMESTAMP": 13423545
+    }
+  ]
+}

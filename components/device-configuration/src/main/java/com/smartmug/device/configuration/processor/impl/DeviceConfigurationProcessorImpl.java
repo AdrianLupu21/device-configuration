@@ -78,22 +78,6 @@ public class DeviceConfigurationProcessorImpl implements DeviceConfigurationProc
         userDAO.insertUser(userDTO);
     }
 
-    private UserRepresentation transformUserDTOtoUserRepresentation(final UserDTO userDTO){
-        final UserRepresentation user = new UserRepresentation();
-        user.setEnabled(true);
-        user.setUsername(userDTO.getUsername());
-        user.setFirstName(userDTO.getFirstName());
-        user.setLastName(userDTO.getLastName());
-        user.setEmail(userDTO.getEmail());
-        user.setEmailVerified(false);
-        CredentialRepresentation credentialRep = new CredentialRepresentation();
-        credentialRep.setType(CredentialRepresentation.PASSWORD);
-        credentialRep.setValue(userDTO.getPassword());
-        credentialRep.setTemporary(false);
-        user.setCredentials(Collections.singletonList(credentialRep));
-        return user;
-    }
-
     @Override
     public UserGroupJpa fetchGroupByName(final String name){
         return userGroupDAO.getGroupByName(name);
@@ -159,6 +143,22 @@ public class DeviceConfigurationProcessorImpl implements DeviceConfigurationProc
         userDTO.setLastName(userJpa.getLastName());
         userDTO.setUsername(userJpa.getUsername());
         return userDTO;
+    }
+
+    private UserRepresentation transformUserDTOtoUserRepresentation(final UserDTO userDTO){
+        final UserRepresentation user = new UserRepresentation();
+        user.setEnabled(true);
+        user.setUsername(userDTO.getUsername());
+        user.setFirstName(userDTO.getFirstName());
+        user.setLastName(userDTO.getLastName());
+        user.setEmail(userDTO.getEmail());
+        user.setEmailVerified(false);
+        CredentialRepresentation credentialRep = new CredentialRepresentation();
+        credentialRep.setType(CredentialRepresentation.PASSWORD);
+        credentialRep.setValue(userDTO.getPassword());
+        credentialRep.setTemporary(false);
+        user.setCredentials(Collections.singletonList(credentialRep));
+        return user;
     }
 
     private DeviceConfigurationJpa generateDeviceConfigurationJpa(final String token){

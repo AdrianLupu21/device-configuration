@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "default": {},
+  "title": "Root Schema",
+  "required": [
+    "temperature",
+    "pressure",
+    "humidity"
+  ],
+  "properties": {
+    "temperature": {
+      "type": "object",
+      "default": {},
+      "title": "The temperature Schema",
+      "required": [
+        "unit",
+        "data"
+      ],
+      "properties": {
+        "unit": {
+          "type": "string",
+          "default": "",
+          "title": "The unit Schema",
+          "examples": [
+            "C"
+          ]
+        },
+        "data": {
+          "type": "integer",
+          "default": 0,
+          "title": "The data Schema",
+          "examples": [
+            34
+          ]
+        }
+      },
+      "examples": [{
+        "unit": "C",
+        "data": 34
+      }]
+    },
+    "pressure": {
+      "type": "object",
+      "default": {},
+      "title": "The pressure Schema",
+      "required": [
+        "unit",
+        "data"
+      ],
+      "properties": {
+        "unit": {
+          "type": "string",
+          "default": "",
+          "title": "The unit Schema",
+          "examples": [
+            "Pa"
+          ]
+        },
+        "data": {
+          "type": "integer",
+          "default": 0,
+          "title": "The data Schema",
+          "examples": [
+            334
+          ]
+        }
+      },
+      "examples": [{
+        "unit": "Pa",
+        "data": 334
+      }]
+    },
+    "humidity": {
+      "type": "object",
+      "default": {},
+      "title": "The humidity Schema",
+      "required": [
+        "unit",
+        "data"
+      ],
+      "properties": {
+        "unit": {
+          "type": "string",
+          "default": "",
+          "title": "The unit Schema",
+          "examples": [
+            "gm3"
+          ]
+        },
+        "data": {
+          "type": "integer",
+          "default": 0,
+          "title": "The data Schema",
+          "examples": [
+            23
+          ]
+        }
+      },
+      "examples": [{
+        "unit": "gm3",
+        "data": 23
+      }]
+    }
+  },
+  "examples": [{
+    "temperature": {
+      "unit": "C",
+      "data": 34
+    },
+    "pressure": {
+      "unit": "Pa",
+      "data": 334
+    },
+    "humidity": {
+      "unit": "gm3",
+      "data": 23
+    }
+  }]
+}

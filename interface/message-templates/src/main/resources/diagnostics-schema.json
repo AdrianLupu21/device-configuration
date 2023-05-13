@@ -1,0 +1,130 @@
+{
+  "$id": "urn:vertxschemas:36674ef2-bf56-4a50-b4ff-73bd68993ef7",
+  "type": "object",
+  "title": "Root Schema",
+  "properties": {
+    "CPU_TEMPERATURE": {
+      "type": "string",
+      "title": "The CPU_TEMPERATURE Schema",
+      "examples": [
+        "23"
+      ],
+      "maxLength": "3"
+    },
+    "CPU_USAGE": {
+      "type": "string",
+      "title": "The CPU_USAGE Schema",
+      "examples": [
+        "43"
+      ]
+    },
+    "BATTERY_LEVEL": {
+      "type": "string",
+      "title": "The BATTERY_LEVEL Schema",
+      "examples": [
+        "23"
+      ]
+    },
+    "POWER_CONSUMPTION": {
+      "type": "string",
+      "title": "The POWER_CONSUMPTION Schema",
+      "examples": [
+        "12"
+      ]
+    },
+    "MEMORY_USAGE": {
+      "type": "string",
+      "title": "The MEMORY_USAGE Schema",
+      "examples": [
+        "43"
+      ]
+    },
+    "NETWORK_TRAFFIC": {
+      "type": "string",
+      "title": "The NETWORK_TRAFFIC Schema",
+      "examples": [
+        "23"
+      ]
+    },
+    "IO_OPERATIONS": {
+      "type": "string",
+      "title": "The IO_OPERATIONS Schema",
+      "examples": [
+        "12"
+      ]
+    },
+    "ERROR_LOGS": {
+      "type": "array",
+      "default": [],
+      "title": "The ERROR_LOGS Schema",
+      "items": {
+        "type": "object",
+        "title": "A Schema",
+        "required": [
+          "SEVERITY",
+          "MESSAGE",
+          "TIMESTAMP"
+        ],
+        "properties": {
+          "SEVERITY": {
+            "type": "string",
+            "title": "The SEVERITY Schema",
+            "examples": [
+              "INFO"
+            ]
+          },
+          "MESSAGE": {
+            "type": "string",
+            "title": "The MESSAGE Schema",
+            "examples": [
+              "test message"
+            ]
+          },
+          "TIMESTAMP": {
+            "type": "integer",
+            "title": "The TIMESTAMP Schema",
+            "examples": [
+              13423545
+            ]
+          }
+        },
+        "examples": [{
+          "SEVERITY": "INFO",
+          "MESSAGE": "test message",
+          "TIMESTAMP": 13423545
+        }]
+      },
+      "examples": [
+        [{
+          "SEVERITY": "INFO",
+          "MESSAGE": "test message",
+          "TIMESTAMP": 13423545
+        }]
+      ]
+    }
+  },
+  "required": [
+    "CPU_TEMPERATURE",
+    "CPU_USAGE",
+    "BATTERY_LEVEL",
+    "POWER_CONSUMPTION",
+    "MEMORY_USAGE",
+    "NETWORK_TRAFFIC",
+    "IO_OPERATIONS",
+    "ERROR_LOGS"
+  ],
+  "examples": [{
+    "CPU_TEMPERATURE": "23",
+    "CPU_USAGE": "43",
+    "BATTERY_LEVEL": "23",
+    "POWER_CONSUMPTION": "12",
+    "MEMORY_USAGE": "43",
+    "NETWORK_TRAFFIC": "23",
+    "IO_OPERATIONS": "12",
+    "ERROR_LOGS": [{
+      "SEVERITY": "INFO",
+      "MESSAGE": "test message",
+      "TIMESTAMP": 13423545
+    }]
+  }]
+}

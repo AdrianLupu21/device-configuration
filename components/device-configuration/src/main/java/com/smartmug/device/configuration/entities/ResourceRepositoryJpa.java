@@ -14,6 +14,8 @@ public class ResourceRepositoryJpa {
 
     private String path;
 
+    private OffsetDateTime lastUpdateDate;
+
     public String getPath() {
         return path;
     }
@@ -21,8 +23,6 @@ public class ResourceRepositoryJpa {
     public void setPath(String path) {
         this.path = path;
     }
-
-    private OffsetDateTime lastUpdateDate;
 
     private String updatedBy;
 

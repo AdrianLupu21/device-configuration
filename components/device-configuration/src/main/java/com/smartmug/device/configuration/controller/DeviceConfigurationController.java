@@ -3,19 +3,18 @@ package com.smartmug.device.configuration.controller;
 import com.smartmug.device.configuration.dto.DeviceConfigurationDTO;
 import com.smartmug.device.configuration.dto.GroupDTO;
 import com.smartmug.device.configuration.processor.spi.DeviceConfigurationProcessor;
-import com.smartmug.device.resource.DeviceConfigurationResource;
+import com.smartmug.device.configuration.resource.DeviceConfigurationResource;
 import com.smartmug.device.configuration.dto.UserDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
 import javax.annotation.security.PermitAll;
-import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 import java.util.Collections;
 import java.util.List;
@@ -85,10 +84,10 @@ public class DeviceConfigurationController implements DeviceConfigurationResourc
 
     @Override
     @PreAuthorize("hasRole('USER')")
-    public Response getResource(final String resourcePath){
+    public ResponseEntity<String>  getResource(final String resourcePath){
         logger.info("running `getResource`");
         final String resource = deviceConfigurationProcessor.getResource(resourcePath);
-        return Response.ok(resource).build();
+        return ResponseEntity.ok(resource);
     }
 
     @Override

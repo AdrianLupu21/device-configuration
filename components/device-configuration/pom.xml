@@ -107,6 +107,17 @@
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-admin-client</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.smartmug.components</groupId>
+            <artifactId>rabbitmq-connector</artifactId>
+            <version>develop-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.smartmug</groupId>
+            <artifactId>notification-client</artifactId>
+        </dependency>
+
+
     </dependencies>
 
     <build>

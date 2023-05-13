@@ -5,6 +5,13 @@ spring:
     username: postgres
     url: 'jdbc:postgresql://localhost:5432/DEVICE_CONFIG'
     password: postgres
+  rabbitmq:
+    host: "localhost"
+    port: 5672
+    username: "guest"
+    password: "guest"
+    exchange: "my_exchange"
+    routing-key: "routing-key"
 keycloak:
   auth-server-url: 'http://85.204.43.222:4200/auth'
   credentials:
@@ -15,11 +22,7 @@ keycloak:
   bearer-only: true
   use-resource-role-mappings: true
   cors: true
-#  redirect-uris:
-#    - 'http://localhost:8080/*'
 server:
-#  servlet:
-#    context-path: /maxcup
   port: '8090'
   address: '0.0.0.0'
 connector:

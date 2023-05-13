@@ -32,6 +32,11 @@
 		<module>boms</module>
 		<module>interface</module>
 		<module>components</module>
-    </modules>
+        <module>interface/message-templates</module>
+		<module>interface/device-notification-resource</module>
+        <module>interface/kafka-configuration-model</module>
+		<module>interface/device-management-resource</module>
+		<module>interface/device-management-model</module>
+	</modules>
 
 </project>

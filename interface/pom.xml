@@ -22,6 +22,11 @@
     <modules>
         <module>device-configuration-model</module>
         <module>device-configuration-resource</module>
+        <module>device-notification-resource</module>
+        <module>kafka-configuration-model</module>
+        <module>device-management-resource</module>
+        <module>device-management-model</module>
+        <module>message-templates</module>
     </modules>
     <distributionManagement>
         <repository>

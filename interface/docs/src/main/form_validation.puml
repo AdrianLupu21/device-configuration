@@ -1,0 +1,71 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+header Lupu Adrian-Claudiu
+title Message validation flow
+queue RabbitMQ
+queue ApacheKafka
+database elasticsearch
+
+autonumber
+
+Client -> RabbitMQ: publish message on queue
+RabbitMQ -> DataCollection: read message from queue
+
+
+activate DataCollection #green
+
+box iotPlatform #LightBlue
+participant DataCollection
+participant DeviceConfiguration
+participant DeviceManagement
+participant Notification
+end box
+
+note over DataCollection, DeviceManagement: fetch message schema validator
+
+DataCollection -> DeviceManagement: GET /device/{{deviceId}}/{{resourceType}}
+activate DeviceManagement
+DeviceManagement -> DeviceManagement: fetch path to the resource\n from resources table
+DeviceManagement --> DataCollection: Path of the resource file
+deactivate DeviceManagement
+DataCollection -> DeviceConfiguration: GET /resource?resourcePath={resource_path}
+activate DeviceConfiguration
+DeviceConfiguration -> DeviceConfiguration: fetch schema file\n from resource_repository\n table
+DeviceConfiguration --> DataCollection: Object which contains the JSON schema
+deactivate DeviceConfiguration
+DataCollection -> DataCollection: With the fetched schema\ncheck if the message is valid
+
+alt message is valid
+    DataCollection -> elasticsearch: save message\n to elasticsearch
+    activate DataCollection #red
+else message is not valid
+    note across : update the message template
+    DataCollection -> RabbitMQ: publish alert on queue
+    deactivate DataCollection
+    deactivate DataCollection
+    RabbitMQ -> DeviceConfiguration: read alert from queue
+    activate DeviceConfiguration
+    DeviceConfiguration -> DeviceConfiguration: read template from\n the database
+    DeviceConfiguration -> Notification: POST /template/update/{deviceId}
+    activate Notification #green
+    alt connection properties is cached
+        Notification -> Notification: fetch connection properties
+    else connection properties is not cached
+        Notification -> DeviceManagement: GET /device/{{deviceId}}
+        activate Notification #red
+        activate DeviceManagement
+        DeviceManagement -> DeviceManagement: fetch kafka properties\n from device table
+        DeviceManagement --> Notification:KafkaConfiguration object
+        deactivate Notification
+        deactivate DeviceManagement
+    end
+    Notification -> ApacheKafka: post message on topic
+    deactivate Notification
+    ApacheKafka -> Client: read message from topic
+    ApacheKafka --> Notification: ack
+    Notification --> DeviceConfiguration: 200 OK
+    deactivate Notification
+    deactivate DeviceConfiguration
+end
+
+@enduml
